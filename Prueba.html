@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Contacto</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu archivo CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Enlaza la biblioteca Font Awesome para iconos -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Estilos para la información de contacto */
+        #contact-info {
+            margin-bottom: 20px;
+        }
+
+        #contact-info p {
+            margin: 0;
+        }
+
+        /* Estilos para los iconos sociales */
+        #social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        #social-icons a:hover {
+            color: #55acee; /* Color de Instagram */
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 1px 0;/*esta es la barra de siguenos en nuestras redes socioales*/
+        }
+
+        /* Estilos para el total a pagar */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button,
+        .continue-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+
+        .back-button:hover,
+        .continue-button:hover {
+            background-color: #555;
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .quantity-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+
+        .quantity-input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 60px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Contacta con Nosotros!</h1>
+        <div id="contact-info">
+            <p><i class="fas fa-phone"></i> 5599-2277</p>
+            <div id="social-icons">
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="contact-form">
+            <!-- Aquí puedes agregar un formulario de contacto si lo deseas -->
+        </div>
+    </main>
+    <footer>
+        <p>¡Síguenos en nuestras redes sociales para mantenerte al tanto de todas nuestras novedades!</p>
+    </footer>
+
+    <div class="container">
+        <h1>Total a Pagar</h1>
+        
+        <div class="card">
+            <h2>Doblada 2D</h2>
+            <p>Precio: Q30.00 por boleto</p>
+            <div class="quantity-container">
+                <button class="quantity-button" onclick="decrementQuantity('2d')">-</button>
+                <input type="text" class="quantity-input" id="quantity-2d" value="0" readonly>
+                <button class="quantity-button" onclick="incrementQuantity('2d')">+</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Doblada 3D</h2>
+            <p>Precio: Q35.00 por boleto</p>
+            <div class="quantity-container">
+                <button class="quantity-button" onclick="decrementQuantity('3d')">-</button>
+                <input type="text" class="quantity-input" id="quantity-3d" value="0" readonly>
+                <button class="quantity-button" onclick="incrementQuantity('3d')">+</button>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="back-button" onclick="cancel()">Cancelar</button>
+            <button class="continue-button" onclick="continueToCheckout()">Continuar</button>
+        </div>
+
+        <p id="total-price" style="text-align: center; font-size: 20px; margin-top: 20px;">Total a Pagar: Q0.00</p>
+    </div>
+
+    <script>
+        // Variables globales
+        let quantity2D = 0;
+        let quantity3D = 0;
+        const price2D = 30;
+        const price3D = 35;
+
+        // Obtener elementos del DOM
+        const quantityInput2D = document.getElementById('quantity-2d');
+        const quantityInput3D = document.getElementById('quantity-3d');
+        const totalPriceDisplay = document.getElementById('total-price');
+
+        // Función para incrementar la cantidad de boletos
+        function incrementQuantity(type) {
+            if (type === '2d') {
+                quantity2D++;
+                quantityInput2D.value = quantity2D;
+            } else if (type === '3d') {
+                quantity3D++;
+                quantityInput3D.value = quantity3D;
+            }
+            updateTotalPrice();
+        }
+
+        // Función para decrementar la cantidad de boletos
+        function decrementQuantity(type) {
+            if (type === '2d' && quantity2D > 0) {
+                quantity2D--;
+                quantityInput2D.value = quantity2D;
+            } else if (type === '3d' && quantity3D > 0) {
+                quantity3D--;
+                quantityInput3D.value = quantity3D;
+            }
+            updateTotalPrice();
+        }
+
+        // Función para actualizar el precio total
+        function updateTotalPrice() {
+            const totalPrice = (quantity2D * price2D) + (quantity3D * price3D);
+            totalPriceDisplay.textContent = `Total a Pagar: Q${totalPrice.toFixed(2)}`;
+        }
+
+        // Función para cancelar
+        function cancel() {
+            alert('Compra cancelada');
+            // Aquí puedes redirigir a otra página o realizar otras acciones necesarias
+        }
+
+        // Función para continuar al proceso de pago
+        function continueToCheckout() {
+            const totalPrice = (quantity2D * price2D) + (quantity3D * price3D);
+            alert('Continuar al proceso de pago.\nTotal a pagar: Q' + totalPrice.toFixed(2));
+            // Aquí puedes redirigir a la página de pago o realizar otras acciones necesarias
+        }
+    </script>
+</body>
+</html>

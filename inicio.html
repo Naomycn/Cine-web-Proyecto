@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine - Interfaz</title>
+    <link rel="stylesheet" href="inicio.css">
+       
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="Imagenes/cine_logo.png" alt="Cine Logo" />
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar..." />
+        </div>
+        <div class="user-actions">
+            <img src="Imagenes/user_icon.webp" alt="Usuario" />
+            <span>Nombre de Usuario</span>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-menu-bar"></div>
+            <div class="hamburger-menu-bar"></div>
+            <div class="hamburger-menu-bar"></div>
+        </div>
+    </div>
+
+    <!-- Barra de navegación principal -->
+    <div class="main-nav" id="mainNav">
+        <a href="#">Cartelera</a>
+        <a href="#">Preventas</a>
+        <a href="#">Más Opciones</a>
+        <!-- Agregar más enlaces según sea necesario -->
+    </div>
+
+    <!-- Sección de categorías -->
+    <div class="movie-categories">
+        <select name="cine" id="cine">
+            <option value="">Seleccionar Cine</option>
+            <option value="cine1">Cine Magic Izabal</option>
+            <option value="cine2">Cine Magic Puerto Barrios</option>
+            <option value="cine3">Cine Magic Puerto Barrios</option>
+            <option value="cine4">Cine Magic Antigua</option>
+            <!-- Agregar más cines según sea necesario -->
+        </select>
+        <select name="categoria" id="categoria">
+            <option value="">Seleccionar Categoría</option>
+            <option value="accion">Acción</option>
+            <option value="aventura">Aventura</option>
+            <option value="comedia">Comedia</option>
+            <option value="terror">Terror</option>
+            <!-- Agregar más categorías según sea necesario -->
+        </select>
+        <button onclick="verCartelera()">Ver Cartelera</button>
+    </div>
+
+    <!-- Lista de películas -->
+    <div class="movie-list" id="movieList">
+        <!-- Aquí se mostrarán las películas -->
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var navMenu = document.getElementById("mainNav");
+            if (navMenu.style.display === "block") {
+                navMenu.style.display = "none";
+            } else {
+                navMenu.style.display = "block";
+            }
+        }
+
+        // Función para simular la visualización de la cartelera
+        function verCartelera() {
+            var movieList = document.getElementById("movieList");
+            movieList.innerHTML = `
+                <div class="movie-item">
+                    <h3>La Primera Profecía</h3>
+                    <img src="Imagenes/Peli1.jpeg" alt="Película 1">
+                    <p>Es una película de terror sobrenatural estadounidense de 2024</p>
+                    <a href="detalles-1.html">Ver Detalles</a>
+                </div>
+                <div class="movie-item">
+                    <h3>Chostbusters</h3>
+                    <img src="Imagenes/Peli2.jpeg" alt="Película 2">
+                    <p>La familia Spengler regresa a la famosa estación de bomberos de la ciudad de Nueva York con los cazafantasmas originales</p>
+                    <a href="#">Ver Detalles</a>
+                </div>
+                <div class="movie-item">
+                    <h3>Título de la Película 3</h3>
+                    <img src="Imagenes/Peli3.jpg" alt="Película 3">
+                    <p>Descripción de la película 3.</p>
+                    <a href="#">Ver Detalles</a>
+                </div>
+                <div class="movie-item">
+                    <h3>Título de la Película 4</h3>
+                    <img src="Imagenes/Peli4.jpeg" alt="Película 4">
+                    <p>Descripción de la película 4.</p>
+                    <a href="#">Ver Detalles</a>
+                </div>
+                <!-- Agregar más películas según sea necesario -->
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Estilos para la información de contacto */
+
+#contact-info {
+    margin-bottom: 20px;
+}
+
+#contact-info p {
+    margin: 0;
+}
+
+/* Estilos para los iconos sociales */
+
+#social-icons a {
+    margin-right: 10px;
+    color: #fff;
+    font-size: 24px;
+}
+
+#social-icons a:hover {
+    color: #55acee; /* Color de Instagram */
+}
+
+/* Estilos para el pie de página */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
