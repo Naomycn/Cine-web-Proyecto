@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Pago</title>
+<link rel="stylesheet" href="prueba.css">
+</head>
+<body>
+<div class="container">
+<h1>Formulario de Pago</h1>
+<form id="payment-form">
+<div class="form-group">
+<label for="email">Correo Electrónico</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="form-group">
+<label for="card-number">Número de Tarjeta</label>
+<input type="text" id="card-number" name="card-number" pattern="[0-9]{16}" maxlength="16" required>
+</div>
+<div class="form-group">
+<label for="name">Nombre en la Tarjeta</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="expiration">Fecha de Expiración (MM/AA)</label>
+<input type="text" id="expiration" name="expiration" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" required>
+</div>
+<div class="form-group">
+<label for="cvv">CVV</label>
+<input type="text" id="cvv" name="cvv" pattern="[0-9]{3,4}" maxlength="4" required>
+</div>
+<div class="form-group">
+<label for="nit">NIT</label>
+<input type="text" id="nit" name="nit" required>
+</div>
+<div class="card-type" id="card-type"></div>
+<button type="submit">Pagar</button>
+</form>
+</div>
+
+<script src="prueba.js"></script>
+</body>
+</html>
+

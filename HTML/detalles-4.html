@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Película</title>
+    <link rel="stylesheet" href="detalles-4.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles de la Película</h1>
+        <img class="movie-image" src="Imagenes/Peli4.jpeg" alt="Película" />
+        
+        <div class="card">
+            <h2>Información General</h2>
+            <p><strong>Título:</strong> Título de la película</p>
+            <p><strong>Año:</strong> 2023</p>
+            <p><strong>Duración:</strong> 2 horas 15 minutos</p>
+            <p><strong>Clasificación:</strong> PG-13</p>
+            <p><strong>Formato:</strong> Digital</p>
+            <p><strong>Idioma:</strong> Español (Doblado)</p>
+        </div>
+
+        <div class="card">
+            <h2>Sinopsis</h2>
+            <p>Descripción breve de la trama de la película.</p>
+        </div>
+
+        <div class="card">
+            <h2>Créditos</h2>
+            <p><strong>Director:</strong> Nombre del director</p>
+            <p><strong>Guión:</strong> Nombre del guionista</p>
+            <p><strong>Productor:</strong> Nombre del productor</p>
+        </div>
+
+        <div class="card">
+            <h2>Reparto</h2>
+            <p>Actor 1</p>
+            <p>Actor 2</p>
+            <p>Actor 3</p>
+        </div>
+
+        <div class="card">
+            <h2>Horarios</h2>
+            <div class="schedule">
+                <p><strong>Fecha:</strong> <input type="date" class="schedule-input" id="fechaHorario1"></p>
+                <button class="schedule-button" onclick="selectSchedule('lunes', '10:00')">10:00 AM</button>
+                <button class="schedule-button" onclick="selectSchedule('lunes', '15:00')">3:00 PM</button>
+            </div>
+            <div class="schedule">
+                <p><strong>Fecha:</strong> <input type="date" class="schedule-input" id="fechaHorario2"></p>
+                <button class="schedule-button" onclick="selectSchedule('martes', '11:00')">11:00 AM</button>
+                <button class="schedule-button" onclick="selectSchedule('martes', '18:00')">6:00 PM</button>
+            </div>
+            <!-- Puedes agregar más días y horarios según sea necesario -->
+        </div>
+
+        <div class="button-container">
+            <button class="back-button" onclick="goBack()">Regresar</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function selectSchedule(day, time) {
+            // Implementa aquí la lógica para seleccionar el horario
+            console.log("Horario seleccionado: " + day + " " + time);
+        }
+    </script>
+</body>
+</html>
