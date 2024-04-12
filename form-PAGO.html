@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"></script>
+    <title>Formulario de Pago</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Formulario de Pago</h2>
+        <form method="post">
+            <h4>Cuenta</h4>
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="text" placeholder="Nombre Completo" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Nombre de Usuario" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-box">
+                <input type="email" placeholder="Correo Electronico" required class="name">
+                <i class="fa-solid fa-envelope icon"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-box">
+                    <h4>Fecha de Nacimiento</h4>
+                    <input type="text" placeholder="DD" class="dob">
+                    <input type="text" placeholder="MM" class="dob">
+                    <input type="text" placeholder="AAAA" class="dob">
+                </div>
+                <div class="input-box">
+                    <h4>Genero</h4>
+                    <input type="radio" id="b1" name="gendar" checked class="radio">
+                    <label for="b1">Masculino</label>
+                    <input type="radio" id="b2" name="gendar" class="radio">
+                    <label for="b2">Femenino</label>
+                </div>
+            </div>
+             <div class="input-group">
+                <div class="input-box">
+                    <h4>Detalles de Pago</h4>
+                    <input type="radio" name="pay" id="bc1" checked class="radio">
+                    <label for="bc1"><span><i class="fa-solid fa-credit-card"></i> Tarjeta de Credito</span></label>
+                    <input type="radio" name="pay" id="bc2" class="radio">
+                    <label for="bc2"><span><i class="fa-brands fa-paypal"></i>PayPal</span></label>
+                </div>
+
+             </div>
+             <div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Numero de Tarjeta" required class="name">
+                    <i class="fa-solid fa-credit-card icon"></i>
+
+
+                </div>
+
+             </div>
+
+             <div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Tarjeta CVC" required class="name">
+                    <i class="fa-solid fa-user icon"></i>
+
+                </div>
+                <div class="input-box">
+                    <select>
+                        <option>10 Feb</option>
+                        <option>10 Feb</option>
+                        <option>10 Feb</option>
+                    </select>
+                    <select>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+
+                </div>
+             </div>
+             <div class="input-group">
+                <div class="input-box">
+                    <button type="submit">Pagar Ahora</button>
+                </div>
+
+             </div>
+        </form>
+
+    </div>
+</body>
+</html>
