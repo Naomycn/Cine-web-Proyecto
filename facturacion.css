@@ -1,0 +1,127 @@
+/* Globales */
+html {
+    box-sizing: border-box;
+    font-size: 80.5%; /** =10px de 16px**/
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+.contenedor{
+     width: 80%;
+     margin: 0 auto;
+    
+}
+
+.seccion{
+    margin-top: 10px;
+    /* padding-top: 20px; */
+    border: 3px solid #DFE8EE;
+}
+
+
+
+label{
+    line-height: 2rem;
+    
+    
+}
+h3{
+    margin: 1px;
+}
+th{
+    background-color: #DFE8EE;
+}
+
+/* Logo barra superior */
+.barra{
+     display: flex;
+     justify-content: space-between;
+     background-color: #DFE8EE;
+     
+}
+.numero-factura{
+    padding-right: 20px;
+    text-align: center;
+    padding-top: 5px;
+}
+.barra p{
+    margin: 0;
+    font-size: 1.6rem;
+}
+.barra h1{
+    padding: 0 30px;
+}
+/* Articulo */
+
+.articulo{
+    padding: 15px;
+    margin: 10px 10px 10px; 
+    border: 1px solid #DFE8EE;
+    
+}
+.articulo p {
+    margin: 0 ;
+    font-size: 1.2rem;
+}
+.articulo label{
+    font-size: 1.2rem;
+}
+
+.formulario-articulo{
+    display: flex;
+    justify-content: space-between;
+}
+.articulo-input{
+    width: 65%;
+    
+}
+.articulo-input1{
+    width: 35%;   
+}
+form label input{
+    padding-right: 10px;
+}
+.descripcion{
+    position: relative;
+
+}
+/* Tabla */
+table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px soli #DFE8EE;
+}
+th:first-child{
+    width: 50px;
+}
+td {
+  padding: 10px;
+  
+}
+.fila2,.fila4{
+    background-color: #DFE8EE;
+}
+/* Total */
+
+.frm-total {
+  display: flex;
+  margin-left: 78%;
+  
+  margin-top: 10px;
+}
+.total{
+width: 100%;
+padding: 20px 5px 20px 60px;
+}
+.input-total{
+    border: 0;
+    border-bottom:1px solid #DFE8EE;
+}
+.total label {
+    display: inline-block;
+    width: 70px;
+    font-weight: bold;
+    
+
+}

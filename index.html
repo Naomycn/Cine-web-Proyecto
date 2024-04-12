@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Cinema UI</title>
+  <title>Cine Magic</title>
 </head>
-
 <body>
-  <div class="movie-container">
-    <label for="Elije un Pelicula"></label>
-    <select id="movie">
-      <option value="3200">Amelie ($3200)</option>
-      <option value="2600">World of Warcarft ($2600)</option>
-      <option value="4200">Gladiador ($4200)</option>
-      <option value="3800">Pulp Fiction ($3800)</option>
-    </select>
-  </div><!-- final de movie contaienr -->
+  <h1>Selecciona tus Asientos</h1>
 
   <ul class="showcase">
     <li>
@@ -36,54 +26,54 @@
   <div class="container">
     <div class="screen"></div>
     <div class="row">
+      <div class="seat">1</div>
+      <div class="seat">2</div>
+      <div class="seat">3</div>
+      <div class="seat">4</div>
+      <div class="seat ">5</div>
+      <div class="seat">6</div>
+      <div class="seat">7</div>
+      <div class="seat">8</div>
+    </div><!-- final de row -->
+    <div class="row">
+      <div class="seat occupied">9</div>
+      <div class="seat">10</div>
+      <div class="seat">11</div>
+      <div class="seat">12</div>
+      <div class="seat occupied">13</div>
+      <div class="seat occupied">14</div>
+      <div class="seat">15</div>
+      <div class="seat">16</div>
+    </div><!-- final de row -->
+    <div class="row">
+      <div class="seat">17</div>
+      <div class="seat">18</div>
+      <div class="seat">19</div>
+      <div class="seat">20</div>
+      <div class="seat">21</div>
+      <div class="seat">22</div>
+      <div class="seat">23</div>
+      <div class="seat">24</div>
+    </div><!-- final de row -->
+    <div class="row">
+      <div class="seat">25</div>
+      <div class="seat">26</div>
+      <div class="seat">27</div>
+      <div class="seat occupied">28</div>
+      <div class="seat occupied"></div>
       <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div><!-- final de row -->
+    <div class="row">
       <div class="seat"></div>
       <div class="seat"></div>
       <div class="seat"></div>
       <div class="seat "></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div><!-- final de row -->
-    <div class="row">
-      <div class="seat occupied"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
       <div class="seat occupied"></div>
       <div class="seat occupied"></div>
       <div class="seat"></div>
-      <div class="seat"></div>
-    </div><!-- final de row -->
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div><!-- final de row -->
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div><!-- final de row -->
-    <div class="row">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat "></div>
-      <div class="seat occupied"></div>
-      <div class="seat occupied"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+      <div class="seat">01</div>
     </div><!-- final de row -->
     <div class="row">
       <div class="seat"></div>
@@ -93,16 +83,42 @@
       <div class="seat"></div>
       <div class="seat"></div>
       <div class="seat"></div>
-      <div class="seat"></div>
+      <div class="seat">0</div>
     </div><!-- final de row -->
 
   </div><!-- final de container -->
+    <!-- Otras filas de asientos -->
+  </div>
   
-  <p class="text">Haz seleccionado <span id="count">0</span> entradas 
-    por el precio de $<span id="total">0</span></p>
+  <p class="text">Has seleccionado el asiento <span id="selectedSeat">-</span> en la fila <span id="selectedRow">-</span>. El total es de <span id="count">0</span> entradas por el precio de Q.<span id="total">0</span></p>
+
+  <div class="legend">
+    <h2>Significado de Colores</h2>
+    <div class="legend-item">
+      <div class="seat"></div>
+      <span>Disponible</span>
+    </div>
+    <div class="legend-item">
+      <div class="seat wheelchair"></div>
+      <span>Silla de Ruedas</span>
+    </div>
+      <div class="legend-item">
+        <div class="seat selected"></div>
+        <span>Seleccionado</span>
+      </div>
+      <div class="legend-item">
+        <div class="seat occupied"></div>
+        <span>Ocupado</span>
+      </div>
+  </div>
+
+  <div class="buttons">
+    <button id="backButton" onclick="window.location.href = 'compra-boletos.html'">Regresar</button>
+    <button id="continueButton" onclick="window.location.href = 'form-PAGO.html'">Continuar</button>
+
+  </div>
 
   <script src="script.js"></script>
   
 </body>
-
 </html>

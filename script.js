@@ -1,64 +1,42 @@
-const container = document.querySelector('.container'); //Selecciona un elemento por clase 
-const seats = document.querySelectorAll('.row .seat:not(.occupied)'); //Toma todos los tipos de elemento en una node list
-const count = document.getElementById('count'); // Selecciona elemento por id 
+const container = document.querySelector('.container');
+const seats = document.querySelectorAll('.row .seat:not(.blocked)');
+const count = document.getElementById('count');
+const backButton = document.getElementById('backButton');
 const total = document.getElementById('total');
-const movieSelect = document.getElementById('movie');
+const selectedSeatText = document.getElementById('selectedSeat');
+const selectedRowText = document.getElementById('selectedRow');
+const continueButton = document.getElementById('continueButton');
 
-populateUI();
+// No se necesita la función populateUI ya que no hay selección de película
 
-let ticketPrice = +movieSelect.value; //el + reemplaza la funccion parseInt que transforma el tipo de data a numbero
-// console.log(typeof ticketPrice); typeof muestra el tipo de data 
+let ticketPrice = 10; // Precio del boleto fijo, puedes ajustarlo según sea necesario
 
-// Guardar pelicula y precio en local storage
-function setMovieData(movieIndex, moviePrice) {
-    localStorage.setItem('selectedMovieIndex', movieIndex); //Toma el index y lo guarda en la base de dato del browser 
-    localStorage.setItem('selectedMoviePrice', moviePrice);
-}
-
-// Actualiza el total y la cuenta
 function updateSelectedCount() {
-    const selectedSeats = document.querySelectorAll('.row .seat.selected'); //selecciona solo los asientos que estan fila selecionados
+  const selectedSeats = document.querySelectorAll('.row .seat.selected');
+  const selectedSeatsCount = selectedSeats.length;
 
-    const seatsIndex = [...selectedSeats].map(function (seat) { //Copiar los asientos seleccionados de la node list y lo transforma en array 
-        return [...seats].indexOf(seat); //devuelve un arrray de los indexes value de los asientos
-    });
-
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex)); //Guarda el array seatIndex en el browser local storage
-    //JSON,stringify limpia un objecto o un array para uso de sus datos
-
-    const selectedSeatsCount = selectedSeats.length; //cuenta los elemetos de la lista node creada al selecionarlos
-
-    count.innerText = selectedSeatsCount;
-    total.innerText = selectedSeatsCount * ticketPrice;
+  count.innerText = selectedSeatsCount;
+  total.innerText = selectedSeatsCount * ticketPrice;
+  
+  // Calcular la cantidad de asientos disponibles
+  const availableSeatsCount = seats.length - document.querySelectorAll('.row .seat.occupied').length - selectedSeatsCount;
+  remaining.innerText = availableSeatsCount;
 
 }
 
-//Toma los datos de local storage y los muestra en la pantalla
-function populateUI() {
-    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')); //agrega los datos de array u objeto
-
-    if(selectedSeats !== null && selectedSeats.length > 0) {//primero checkeamos si la variable esta declarada ene local storage y luego chekeamos si es un array vacio
-        seats.forEach((seat, index) => {
-            if(selectedSeats.indexOf(index) > -1) {//si checkeamos con indexOf y no esta el valor que buscamos devuelve -1
-                 seat.classList.add('selected');
-            }
-        });
-    }
-
-    const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
-    
-    if(selectedMovieIndex !== null) {
-        movieSelect.selectedIndex = selectedMovieIndex;
-    }
-}
-
-//Evento de seleccion de pelicula
-movieSelect.addEventListener('change', e => {
-    ticketPrice = +e.target.value;
-    setMovieData(e.target.selectedIndex, e.target.value);
+container.addEventListener('click', e => {
+  if(e.target.classList.contains('seat') && !e.target.classList.contains('blocked')) {
+    e.target.classList.toggle('selected');
     updateSelectedCount();
-})
 
+    // Obtener el número de asiento y la fila
+    const selectedSeatNumber = [...e.target.parentNode.children].indexOf(e.target) + 1;
+    const selectedRowNumber = [...container.children].indexOf(e.target.parentNode) + 1;
+
+    selectedSeatText.innerText = selectedSeatNumber;
+    selectedRowText.innerText = selectedRowNumber;
+  }
+})
 // Evento de selecion de asiento 
 container.addEventListener('click', (e) => {
     // console.log(e.target); .target muestra el elemento que se seleciona
@@ -72,9 +50,48 @@ container.addEventListener('click', (e) => {
 
         updateSelectedCount();
     }
+
+    const seats = document.querySelectorAll('.row .seat:not(.occupied)');
+const count = document.getElementById('count');
+const total = document.getElementById('total');
+const selectedSeat = document.getElementById('selectedSeat');
+const selectedRow = document.getElementById('selectedRow');
+
+let ticketPrice = 10;
+
+function updateSelectedCount() {
+    const selectedSeats = document.querySelectorAll('.row .seat.selected');
+    const selectedSeatsCount = selectedSeats.length;
+
+    count.innerText = selectedSeatsCount;
+    total.innerText = selectedSeatsCount * ticketPrice;
+
+    // Si hay un asiento seleccionado, mostrar su número y fila
+    if (selectedSeatsCount === 1) {
+        const seatNumber = Array.from(seats).indexOf(selectedSeats[0]) + 1;
+        const rowNumber = Math.ceil(seatNumber / 8); // Suponiendo 8 asientos por fila
+        selectedSeat.innerText = seatNumber;
+        selectedRow.innerText = String.fromCharCode(65 + rowNumber - 1); // Convertir número de fila a letra (A, B, C, ...)
+    } else {
+        selectedSeat.innerText = '-';
+        selectedRow.innerText = '-';
+    }
+}
+
+// Evento de clic en el asiento
+document.querySelectorAll('.row .seat').forEach(seat => {
+    seat.addEventListener('click', () => {
+        seat.classList.toggle('selected');
+        updateSelectedCount();
+    });
 });
 
+// Funcionalidad de los botones
+backButton.addEventListener('click', () => {
+    // Aquí puedes agregar la lógica para regresar a la página anterior o a otra sección de tu aplicación
+    console.log('Botón de Regresar clickeado');
+});
 
-// Actualiza la cuenta y el total
+});
 
 updateSelectedCount();
