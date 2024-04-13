@@ -24,15 +24,15 @@ function verCartelera() {
             <a href="detalles-2.html">Ver Detalles</a>
         </div>
         <div class="movie-item">
-            <h3>Título de la Película 3</h3>
+            <h3>GODZILLA KONG</h3>
             <img src="Imagenes/Peli3.jpg" alt="Película 3">
-            <p>Descripción de la película 3.</p>
+            <p>Godzilla Kong EL NUEVO MUNDO</p>
             <a href="detalles-3.html">Ver Detalles</a>
         </div>
         <div class="movie-item">
-            <h3>Título de la Película 4</h3>
+            <h3>D-DAY</h3>
             <img src="Imagenes/Peli4.jpeg" alt="Película 4">
-            <p>Descripción de la película 4.</p>
+            <p>¡La esperada película del concierto bis de SUGA de BTS irrumpe en la gran pantalla de todo el mundo! Como gran final de la gira mundial.</p>
             <a href="detalles-4.html">Ver Detalles</a>
         </div>
         <!-- Agregar más películas según sea necesario -->
