@@ -1,45 +1,91 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{master.html}">
+
 <head>
-<meta charset="utf-8">
-<title th:inline="text">Peliculas</title>
+	<meta charset="utf-8">
+	<title th:inline="text">Películas</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+	<style>
+		body {
+			background: linear-gradient(to right, rgb(0, 0, 255), rgb(0, 255, 255));
+			color: #fff;
+			font-family: Arial, sans-serif;
+		}
+
+		h4 {
+			margin-top: 20px;
+			text-align: center;
+			color: #fff;
+		}
+
+		.card {
+			background-color: rgba(255, 255, 255, 0.1);
+			border: none;
+			transition: transform 0.2s;
+		}
+
+		.card:hover {
+			transform: scale(1.05);
+		}
+
+		.card-title {
+			color: #fff;
+		}
+
+		.text-muted {
+			color: #d1d1d1 !important;
+		}
+
+		.pagination {
+			justify-content: center;
+		}
+
+		.pagination .page-link {
+			background-color: rgba(255, 255, 255, 0.2);
+			border: none;
+			color: #fff;
+		}
+
+		.pagination .page-link:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+
+		.pagination .page-item.active .page-link {
+			background-color: rgb(255, 0, 0);
+			color: rgb(255, 255, 255);
+		}
+	</style>
 </head>
+
 <body>
 
-	<div layout:fragment="content">
+	<div layout:fragment="content" class="container">
 		<h4>Todas las películas</h4>
 
 		<div class="row">
-			<div class="row">
-				<div class="col-md-3 my-5" th:each="pelicula : ${peliculas}"
-					th:object="${pelicula}">
-					<a th:href="@{/peliculas/{id}(id=*{id})}" class="card shadow-lg"
-						style="text-decoration: none;"> <img
-						th:src="@{/assets/{filename}(filename=*{rutaPortada})}"
-						th:alt="*{titulo}" class="card-img-top">
-						<div class="card-body">
-							<h2 class="card-title fs-6" th:text="*{titulo}"></h2>
-							<p th:text="*{#temporals.format(fechaEstreno,'dd/MM/yyyy')}"
-								class="text-muted small"></p>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="row mt-5" th:with="page=${peliculas}">
-				<div class="col-sm-6">
-					<div sd:pagination-sumary></div>
-					<div class="col-sm-6">
-						<nav>
-							<ul class="pagination" sd:pagination="full"></ul>
-						</nav>
+			<div class="col-md-3 my-5" th:each="pelicula : ${peliculas}" th:object="${pelicula}">
+				<a th:href="@{/peliculas/{id}(id=*{id})}" class="card shadow-lg" style="text-decoration: none;"> <img
+						th:src="@{/assets/{filename}(filename=*{rutaPortada})}" th:alt="*{titulo}" class="card-img-top">
+					<div class="card-body">
+						<h2 class="card-title fs-6" th:text="*{titulo}"></h2>
+						<p th:text="*{#temporals.format(fechaEstreno,'dd/MM/yyyy')}" class="text-muted small"></p>
 					</div>
-				</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="row mt-5" th:with="page=${peliculas}">
+			<div class="col-12">
+				<nav>
+					<ul class="pagination" sd:pagination="full"></ul>
+				</nav>
 			</div>
 		</div>
 	</div>
 
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
