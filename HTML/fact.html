@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"></script>
     <title>Formulario de Pago</title>
     <link href="fact.css" rel="stylesheet">
+    <script
+      src="https://www.paypal.com/sdk/js?client-id=AawEwdJ6YJLso4q-I34QmYndPuIwl_N0MnHkGfsGu-6Cep0Rs-MUehao9I1T5t4EB-INkhrxVsKJkBvO&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"
+      data-sdk-integration-source="developer-studio"
+    ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        paypal.Buttons().render('#paypal-button-container');
+      });
+    </script>
 </head>
 <body>
     <div class="wrapper">
@@ -26,51 +35,49 @@
             
             <div class="input-group">
                 <div class="input-box">
-                <input type="email" placeholder="Correo Electronico" required class="name">
-                <i class="fa-solid fa-envelope icon"></i>
+                    <input type="email" placeholder="Correo Electrónico" required class="name">
+                    <i class="fa-solid fa-envelope icon"></i>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-box">
-                    <h4>Fecha de Nacimiento</h4>
+                    <h4>Fecha de Vencimiento</h4>
                     <input type="text" placeholder="DD" class="dob">
                     <input type="text" placeholder="MM" class="dob">
                     <input type="text" placeholder="AAAA" class="dob">
                 </div>
                 <div class="input-box">
-                    <h4>Genero</h4>
+                    <h4>Género</h4>
                     <input type="radio" id="b1" name="gendar" checked class="radio">
                     <label for="b1">Masculino</label>
                     <input type="radio" id="b2" name="gendar" class="radio">
                     <label for="b2">Femenino</label>
                 </div>
             </div>
-             <div class="input-group">
+            <div class="input-group">
                 <div class="input-box">
                     <h4>Detalles de Pago</h4>
                     <input type="radio" name="pay" id="bc1" checked class="radio">
-                    <label for="bc1"><span><i class="fa-solid fa-credit-card"></i> Tarjeta de Credito</span></label>
+                    <label for="bc1"><span><i class="fa-solid fa-credit-card"></i> Tarjeta de Crédito</span></label>
+                    
                     <input type="radio" name="pay" id="bc2" class="radio">
-                    <label for="bc2"><span><i class="fa-brands fa-paypal"></i>PayPal</span></label>
+                    <label for="bc2"><span><i class="fa-brands fa-paypal"></i> PayPal</span></label>
                 </div>
+            </div>
+            <div id="paypal-button-container" style="display:none;"></div>
 
-             </div>
-             <div class="input-group">
+            <div class="input-group">
                 <div class="input-box">
-                    <input type="tel" placeholder="Numero de Tarjeta" required class="name">
+                    <input type="tel" placeholder="Número de Tarjeta" required class="name">
                     <i class="fa-solid fa-credit-card icon"></i>
-
-
                 </div>
+            </div>
 
-             </div>
-
-             <div class="input-group">
+            <div class="input-group">
                 <div class="input-box">
                     <input type="tel" placeholder="Tarjeta CVC" required class="name">
                     <i class="fa-solid fa-user icon"></i>
-
                 </div>
                 <div class="input-box">
                     <select>
@@ -86,17 +93,26 @@
                         <option>2024</option>
                         <option>2025</option>
                     </select>
-
                 </div>
-             </div>
-             <div class="input-group">
+            </div>
+            <div class="input-group">
                 <div class="input-box">
                     <button type="submit">Pagar Ahora</button>
                 </div>
-
-             </div>
+            </div>
         </form>
-
     </div>
+    <script>
+      document.querySelectorAll('input[name="pay"]').forEach((elem) => {
+        elem.addEventListener("change", function(event) {
+          const paypalContainer = document.getElementById('paypal-button-container');
+          if (event.target.id === 'bc2') {
+            paypalContainer.style.display = 'block';
+          } else {
+            paypalContainer.style.display = 'none';
+          }
+        });
+      });
+    </script>
 </body>
 </html>
